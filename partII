@@ -1,0 +1,32 @@
+3+4
+a<-3+4
+a
+a+3
+a <- a + 3
+
+#aula 2 - estatistica descritiva
+
+#listar um objeto
+mtcars
+m <- mtcars
+
+View(m)
+
+head(m) #visualização das primeiras 6 linhas do DF
+
+m$mpg #usado para acessar um atributo de um objeto
+mean (m$mpg) #cálculo da média
+median (m$mpg) #cálculo da mediana
+
+max(m$mpg)-min(m$mpg) #amplitude
+sd(m$mpg)#desvio padrão
+
+plot(m$mpg)
+
+write.csv(m, file="m.csv") #exportar objeto - visualizar guia files
+df <- read.csv("m.csv") #importar objeto
+
+install.packages("ggplot2") #instalar data frame
+
+library(ggplot2)
+ 
