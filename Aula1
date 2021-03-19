@@ -1,0 +1,97 @@
+install.packages("ggplot2")
+
+library(ggplot2)
+
+d = diamonds #53k linhas e 10 colunas
+head(d)
+
+#descrever a população
+mean(d$price) #media dos preços dos diamentes
+
+median(d$price)#mediana
+#mediana está superior = valores extremos, estão atraindo a media para cima
+
+sd(d$price)#desvio padrão
+#variação alta
+
+#obtenção de amostra
+
+A1 <- d[1:3000,]
+mean(A1$price)
+median(A1$price)
+sd(A1$price)
+
+#outra amostra
+
+A2 <- d[3001:6000,]
+mean(A2$price)
+median(A2$price)
+sd(A2$price)
+
+#geração aleatoria de um numero
+set.seed(33) #regerar/reproduzir a amostra aleatória - 33 significa: identificar qual das amostras aleatorias estou trabalhando
+sample(3)
+
+
+#geração de um vetor aleatorio do tamanho de uma população
+set.seed(33) #semente de aleatoriedade - cravo os numeros aleatorios do sample
+sample (3) #numero aleatorio
+
+#geração de um vetor aleatório de numbers aleatórios do tamanho da população
+set.seed(33) #meu vetor aleatório não virá em ordem crescente e sim aleatório
+va <- sample(53940)
+a3 <- d[va[1:3000],] #filtro para obtenção de amostra aleatoria // d= data frame // va=vetor aleatorio
+
+mean(a3$price)
+median(a3$price)
+sd(a3$price)
+#a3 amostra que representa a população
+
+#histograma- repres. atraves de um grafico de barras
+#demonstrando a distri dos dados
+hist(d$price)
+hist(A1$price)
+hist(A2$price)
+hist(a3$price)
+
+#parametro janela de visualização do R
+par(mfrow=c(2,2))
+hist(d$price)
+hist(A1$price)
+hist(A2$price)
+hist(a3$price)
+
+plot(d[1:60,]$price)
+
+summary(d)#estatisticas descritivas sobre os meus objetos
+#calcula a função dos meus dados
+summary(d$price)
+summary(A1$price)
+summary(A2$price)
+summary(a3$price)
+
+#boxplot
+
+boxplot(d$price)
+boxplot(A1$price)
+boxplot(A2$price)
+boxplot(a3$price)
+
+#boxplot - análise de segmentos
+
+boxplot(d$price ~d$cut) #preço dos diamantes estão acima
+
+boxplot(d$price ~d$color) #por cor
+
+boxplot(d$price ~d$clarity) #por caracteristica
+
+#gráfico de dispersão
+mtcars
+plot(m$mpg ~ m$wt)
+
+#coef de correlação linear
+cor(m$mpg, m$wt)
+plot(m$mpg ~ m$hp)
+#matriz de correlação
+cor(m)
+
